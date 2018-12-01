@@ -1,0 +1,16 @@
+{
+    "kubernetes": {
+        "storageclasses": {
+            "default": {
+                "spec": {
+                    "reclaimPolicy": "Delete"
+                }
+            },
+            "platinum": {
+                "spec": {
+                    "reclaimPolicy": "Retain"
+                }
+            }
+        }
+    }
+}

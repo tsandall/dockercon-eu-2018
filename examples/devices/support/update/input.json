@@ -1,0 +1,8 @@
+{
+    "action": "UpdateDevice",
+    "subject": {
+        "groups": [
+            "support"
+        ]
+    }
+}

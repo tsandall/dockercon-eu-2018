@@ -1,0 +1,19 @@
+{
+  "apiVersion": "v1",
+  "kind": "PersistentVolumeClaim",
+  "metadata": {
+    "labels": {
+      "app": "catmemes"
+    },
+    "name": "catmemes-claim"
+  },
+  "spec": {
+    "resources": {
+      "requests": {
+        "storage": "8Gi"
+      }
+    },
+    "storageClassName": "platinum",
+    "volumeMode": "Filesystem"
+  }
+}
