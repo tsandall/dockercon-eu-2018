@@ -68,9 +68,7 @@ opa eval -d example.rego \
 ### Execute a query against a package.
 
 ```
-opa eval -d example2.rego \
-    -d examples/devices/support/input.json \
-    'data.acmecorp.devices'
+opa eval -d . 'data.acmecorp.devices'
 ```
 
 > This policy allows 'device update' operations to be executed between 10:00 and
@@ -99,6 +97,38 @@ opa eval -d example2.rego \
             "seconds_per_minute": 60
           },
           "text": "data.acmecorp.devices",
+          "location": {
+            "row": 1,
+            "col": 1
+          }
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Execute a Kubernetes admission control policy query.
+
+```
+opa eval -d . 'data.acmecorp.kubernetes.violation'
+```
+
+> This policy restricts which apps can use the 'retain' storage reclaim policy
+> and ensures that all resources have an 'app' label.
+
+**Example output**:
+
+```json
+{
+  "result": [
+    {
+      "expressions": [
+        {
+          "value": [
+            "pvc not whitelisted to use 'retain' reclaim policy"
+          ],
+          "text": "data.acmecorp.kubernetes.violation",
           "location": {
             "row": 1,
             "col": 1
